@@ -30,7 +30,7 @@ android {
         viewBinding true
     }
 
-    // 🟡 هذا يحل مشكلة Inconsistent JVM-target
+    // توحيد الجافا على 17 (حلّينا به خطأ الـ JVM mismatch)
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -38,16 +38,27 @@ android {
 }
 
 dependencies {
+    // AndroidX أساسية
     implementation "androidx.core:core-ktx:1.17.0"
     implementation "androidx.appcompat:appcompat:1.7.1"
     implementation "com.google.android.material:material:1.12.0"
     implementation "androidx.activity:activity-ktx:1.11.0"
     implementation "androidx.fragment:fragment-ktx:1.8.8"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.6"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"
+
+    // Shizuku API + Provider (يحلون ريفرنس rikka.* و ShizukuBinderWrapper/SystemServiceHelper)
+    implementation "dev.rikka.shizuku:api:13.1.5"
+    implementation "dev.rikka.shizuku:provider:13.1.5"
+
+    // libsu من topjohnwu (Shell/Root APIs) - يحل ريفرنس topjohnwu.Shell*
+    implementation "com.github.topjohnwu.libsu:core:5.3.0"
+    implementation "com.github.topjohnwu.libsu:service:5.3.0"
+
+    // HiddenApiBypass من LSPosed (يحِل ريفرنس HiddenApiBypass)
+    implementation "org.lsposed.hiddenapibypass:hiddenapibypass:6.1"
 }
 
-// 🟡 هذا يضمن إن Kotlin و Java يستخدمون نفس الإصدار (17)
+// توحيد كوتلن على JVM 17
 kotlin {
     jvmToolchain(17)
 }
