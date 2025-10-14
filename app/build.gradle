@@ -21,9 +21,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled false
-        }
+        debug { minifyEnabled false }
     }
 
     buildFeatures { viewBinding true }
@@ -48,15 +46,13 @@ dependencies {
     implementation "dev.rikka.shizuku:api:13.1.5"
     implementation "dev.rikka.shizuku:provider:13.1.5"
 
-    // libsu (topjohnwu)
-implementation "com.github.topjohnwu.libsu:core:5.2.2"
-implementation "com.github.topjohnwu.libsu:service:5.2.2"
-    
+    // libsu (topjohnwu) — عبر jitpack
+    implementation "com.github.topjohnwu.libsu:core:5.2.2"
+    implementation "com.github.topjohnwu.libsu:service:5.2.2"
+
     // HiddenApiBypass (LSPosed)
     implementation "org.lsposed.hiddenapibypass:hiddenapibypass:6.1"
 }
 
 // توحيد كوتلن على JVM 17
-kotlin {
-    jvmToolchain(17)
-}
+kotlin { jvmToolchain(17) }
