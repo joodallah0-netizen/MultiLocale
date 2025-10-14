@@ -49,9 +49,9 @@ dependencies {
     implementation "dev.rikka.shizuku:provider:13.1.5"
 
     // libsu (topjohnwu)
-    implementation "com.github.topjohnwu.libsu:core:5.3.0"
-    implementation "com.github.topjohnwu.libsu:service:5.3.0"
-
+implementation "com.github.topjohnwu.libsu:core:5.2.2"
+implementation "com.github.topjohnwu.libsu:service:5.2.2"
+    
     // HiddenApiBypass (LSPosed)
     implementation "org.lsposed.hiddenapibypass:hiddenapibypass:6.1"
 }
